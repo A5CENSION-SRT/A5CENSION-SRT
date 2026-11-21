@@ -289,7 +289,8 @@ def contrib(th, user):
         if n == 0: return 0
         return 1 if n <= q[0] else 2 if n <= q[1] else 3 if n <= q[2] else 4
 
-    cw, bw, ox, oy, rdx, rdy, maxh = 15.4, 10.0, 4.0, 10.5, 2.0, 12.5, 78
+    cw, bw, ox, oy, rdy, maxh = 15.4, 10.5, 4.0, 10.0, 12.0, 78
+    rdx = ox * rdy / oy
     gy0, x0 = 142, 2
     glint = "#FFFFFF" if th == "light" else "#E6F6F2"
     d.css.append(
