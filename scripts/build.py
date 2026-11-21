@@ -278,7 +278,7 @@ def contrib(th, user):
     c = THEMES[th]
     cal = user["contributionsCollection"]["contributionCalendar"]
     weeks = cal["weeks"]
-    W, H = 860, 286
+    W, H = 860, 288
     d = Doc(W, H, f"{cal['totalContributions']} contributions in the last year")
     allc = [x["contributionCount"] for wk in weeks for x in wk["contributionDays"]]
     nz = sorted(n for n in allc if n)
@@ -291,7 +291,7 @@ def contrib(th, user):
 
     cw, bw, ox, oy, rdy, maxh = 15.4, 10.5, 4.0, 10.0, 12.0, 78
     rdx = ox * rdy / oy
-    gy0, x0 = 166, 2
+    gy0, x0 = 150, 2
     glint = "#FFFFFF" if th == "light" else "#E6F6F2"
     d.css.append(
         f"@keyframes rise{{from{{opacity:0;transform:translateY(16px)}}to{{opacity:1;transform:translateY(0)}}}}"
@@ -381,9 +381,9 @@ def contrib(th, user):
     num, _ = d.text(total, 0, 34, 34, "b", c["accent"])
     cap, _ = d.text(f"contributions in the last year  ·  active {active} of {len(allc)} days", 0, 56, 12, "r", c["muted"])
     d.body.append(f'<g class="t">{num}{cap}</g>')
-    more, mw = d.text("more", W, 21, 11, "r", c["muted"], anchor="end")
-    leg = "".join(f'<rect class="f{i}" x="{W - mw - 8 - (5 - i) * 14:.1f}" y="12" width="10" height="10"/>' for i in range(5))
-    less, _ = d.text("less", W - mw - 8 - 5 * 14 - 6, 21, 11, "r", c["muted"], anchor="end")
+    more, mw = d.text("more", W, 276, 11, "r", c["muted"], anchor="end")
+    leg = "".join(f'<rect class="f{i}" x="{W - mw - 8 - (5 - i) * 14:.1f}" y="267" width="10" height="10"/>' for i in range(5))
+    less, _ = d.text("less", W - mw - 8 - 5 * 14 - 6, 276, 11, "r", c["muted"], anchor="end")
     d.body.append(f'<g class="t">{less}{leg}{more}</g>')
     save("contrib", th, d)
 
