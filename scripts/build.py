@@ -278,7 +278,7 @@ def contrib(th, user):
     c = THEMES[th]
     cal = user["contributionsCollection"]["contributionCalendar"]
     weeks = cal["weeks"]
-    W, H = 860, 262
+    W, H = 860, 286
     d = Doc(W, H, f"{cal['totalContributions']} contributions in the last year")
     allc = [x["contributionCount"] for wk in weeks for x in wk["contributionDays"]]
     nz = sorted(n for n in allc if n)
@@ -291,7 +291,7 @@ def contrib(th, user):
 
     cw, bw, ox, oy, rdy, maxh = 15.4, 10.5, 4.0, 10.0, 12.0, 78
     rdx = ox * rdy / oy
-    gy0, x0 = 142, 2
+    gy0, x0 = 166, 2
     glint = "#FFFFFF" if th == "light" else "#E6F6F2"
     d.css.append(
         f"@keyframes rise{{from{{opacity:0;transform:translateY(16px)}}to{{opacity:1;transform:translateY(0)}}}}"
